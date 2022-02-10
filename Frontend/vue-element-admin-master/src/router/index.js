@@ -83,6 +83,32 @@ export const constantRoutes = [
     ],
   },
   {
+    path: "/",
+    component: Layout,
+    redirect: "/dashboard-perday/index",
+    children: [
+      {
+        path: "dashboard-perday",
+        component: () => import("@/views/dashboard-perday/index"),
+        name: "Dashboard",
+        meta: { title: "Dashboard Per day", icon: "dashboard", affix: true },
+      },
+    ],
+  },
+  {
+    path: "/",
+    component: Layout,
+    redirect: "/dashboard-perweek/index",
+    children: [
+      {
+        path: "dashboard-perweek",
+        component: () => import("@/views/dashboard-perweek/index"),
+        name: "Dashboard",
+        meta: { title: "Dashboard Per week", icon: "dashboard", affix: true },
+      },
+    ],
+  },
+  {
     path: "/profile",
     component: Layout,
     redirect: "/profile/index",

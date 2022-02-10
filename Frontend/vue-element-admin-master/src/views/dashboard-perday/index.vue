@@ -1,13 +1,16 @@
 <template>
   <div class="dashboard-editor-container">
+    <github-corner class="github-corner" />
 
-    <panel-group @handleSetLineChartData="handleSetLineChartData" />
-
+    <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
+      <line-chart :chart-data="lineChartData" />
+      <line-chart :chart-data="lineChartData" />
+    </el-row>
   </div>
 </template>
 
 <script>
-import PanelGroup from './components/PanelGroup'
+import LineChart from './components/LineChart'
 
 
 const lineChartData = {
@@ -32,7 +35,7 @@ const lineChartData = {
 export default {
   name: 'DashboardAdmin',
   components: {
-    PanelGroup,
+    LineChart
   },
   data() {
     return {
@@ -52,7 +55,6 @@ export default {
   padding: 32px;
   background-color: rgb(240, 242, 245);
   position: relative;
-
 }
 
 @media (max-width:1024px) {

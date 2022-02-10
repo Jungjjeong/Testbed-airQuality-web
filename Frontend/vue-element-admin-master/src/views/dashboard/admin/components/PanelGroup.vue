@@ -7,7 +7,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
-            New Visits
+            온도
           </div>
           <count-to :start-val="0" :end-val="102400" :duration="2600" class="card-panel-num" />
         </div>
@@ -20,7 +20,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
-            Messages
+            습도
           </div>
           <count-to :start-val="0" :end-val="81212" :duration="3000" class="card-panel-num" />
         </div>
@@ -33,7 +33,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
-            Purchases
+            CO2
           </div>
           <count-to :start-val="0" :end-val="9280" :duration="3200" class="card-panel-num" />
         </div>
@@ -46,7 +46,20 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
-            Shoppings
+            미세먼지
+          </div>
+          <count-to :start-val="0" :end-val="13600" :duration="3600" class="card-panel-num" />
+        </div>
+      </div>
+    </el-col>
+    <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
+      <div class="card-panel" @click="handleSetLineChartData('shoppings')">
+        <div class="card-panel-icon-wrapper icon-shopping">
+          <svg-icon icon-class="excel" class-name="card-panel-icon" />
+        </div>
+        <div class="card-panel-description">
+          <div class="card-panel-text">
+            초미세먼지
           </div>
           <count-to :start-val="0" :end-val="13600" :duration="3600" class="card-panel-num" />
         </div>
@@ -95,36 +108,36 @@ export default {
       }
 
       .icon-people {
-        background: #40c9c6;
+        background: #C74431;
       }
 
       .icon-message {
-        background: #36a3f7;
+        background: #C74431;
       }
 
       .icon-money {
-        background: #f4516c;
+        background: #C74431;
       }
 
       .icon-shopping {
-        background: #34bfa3
+        background: #C74431
       }
     }
 
     .icon-people {
-      color: #40c9c6;
+      color: #C74431;
     }
 
     .icon-message {
-      color: #36a3f7;
+      color: #C74431;
     }
 
     .icon-money {
-      color: #f4516c;
+      color: #C74431;
     }
 
     .icon-shopping {
-      color: #34bfa3
+      color: #C74431
     }
 
     .card-panel-icon-wrapper {
