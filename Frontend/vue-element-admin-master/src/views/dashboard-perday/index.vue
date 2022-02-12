@@ -11,22 +11,22 @@
       <div class="component-back">
         <div class="component-title">습도</div>
       </div>
-      <line-chart :chart-data="lineChartData" />
+      <line-chart :chart-data="lineChartData2" />
 
       <div class="component-back">
         <div class="component-title">이산화탄소</div>
       </div>
-      <line-chart :chart-data="lineChartData" />
+      <line-chart :chart-data="lineChartData3" />
 
       <div class="component-back">
         <div class="component-title">미세먼지</div>
       </div>
-      <line-chart :chart-data="lineChartData" />
+      <line-chart :chart-data="lineChartData4" />
 
       <div class="component-back">
         <div class="component-title">초미세먼지</div>
       </div>
-      <line-chart :chart-data="lineChartData" />
+      <line-chart :chart-data="lineChartData5" />
     </el-row>
   </div>
 </template>
@@ -37,22 +37,19 @@ import LineChart from './components/LineChart'
 import axios from 'axios'
 
 const lineChartData = {
-  newVisitis: {
-    expectedData: [100, 120, 161, 134, 105, 160, 165],
-    actualData: [120, 82, 91, 154, 162, 140, 145]
-  },
-  messages: {
-    expectedData: [200, 192, 120, 144, 160, 130, 140],
-    actualData: [180, 160, 151, 106, 145, 150, 130]
-  },
-  purchases: {
-    expectedData: [80, 100, 121, 104, 105, 90, 100],
-    actualData: [120, 90, 100, 138, 142, 130, 130]
-  },
-  shoppings: {
-    expectedData: [130, 140, 141, 142, 145, 150, 160],
-    actualData: [120, 82, 91, 154, 162, 140, 130]
-  }
+  actualData: [120, 82, 91, 154, 162, 140, 250]
+}
+const lineChartData2 = {
+  actualData: [100, 82, 91, 154, 162, 140, 250]
+}
+const lineChartData3 = {
+  actualData: [120, 82, 91, 154, 162, 140, 300]
+}
+const lineChartData4 = {
+  actualData: [1, 82, 91, 154, 162, 140, 250]
+}
+const lineChartData5 = {
+  actualData: [10, 82, 91, 154, 162, 140, 250]
 }
 
 export default {
@@ -62,7 +59,11 @@ export default {
   },
   data() {
     return {
-      lineChartData: lineChartData.newVisitis
+      lineChartData: lineChartData,
+      lineChartData2:lineChartData2,
+      lineChartData3:lineChartData3,
+      lineChartData4,lineChartData4,
+      lineChartData5,lineChartData5
     }
   },
   methods: {
