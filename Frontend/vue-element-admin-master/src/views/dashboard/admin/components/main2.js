@@ -15,9 +15,9 @@ var memofile = "";
 function readdata() {
   var temperature = String(Math.floor(Math.random() * (23 - 18 + 1)) + 18);
   var humidity = String(Math.floor(Math.random() * (35 - 28 + 1)) + 28);
-  var CO2 = String(Math.floor(Math.random() * (700 - 650 + 1)) + 650);
-  var dust = String(Math.floor(Math.random() * (38 - 34 + 1) + 34));
-  var minidust = String(Math.floor(Math.random() * (30 - 24 + 1) + 24));
+  var CO2 = String(Math.floor(Math.random() * (900 - 650 + 1)) + 650);
+  var dust = String(Math.floor(Math.random() * (100 - 50 + 1) + 50));
+  var minidust = String(Math.floor(Math.random() * (50 - 24 + 1) + 24));
   var filedata =
     dateString +
     "\t" +

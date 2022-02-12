@@ -32,7 +32,10 @@
 
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">      
       <div class="card-panel">
-        <div class="card-panel-icon-wrapper icon-money">
+        <div class="card-panel-icon-wrapper icon-green" v-if="this.CO2 <= 800">
+          <img src="./svgIcons/co2.svg" class="img-icon" />
+        </div>
+        <div class="card-panel-icon-wrapper icon-yellow" v-if="this.CO2 > 801">
           <img src="./svgIcons/co2.svg" class="img-icon" />
         </div>
         <div class="card-panel-text">
@@ -47,7 +50,10 @@
 
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">      
       <div class="card-panel">
-        <div class="card-panel-icon-wrapper icon-shopping">
+        <div class="card-panel-icon-wrapper icon-green" v-if="this.dust <= 80">
+          <img src="./svgIcons/dust.svg" class="img-icon" />
+        </div>
+        <div class="card-panel-icon-wrapper icon-yellow" v-if="this.dust > 81">
           <img src="./svgIcons/dust.svg" class="img-icon" />
         </div>
         <div class="card-panel-text">
@@ -62,7 +68,10 @@
 
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">   
       <div class="card-panel">
-        <div class="card-panel-icon-wrapper icon-shopping">
+        <div class="card-panel-icon-wrapper icon-green" v-if="this.mini_dust < 36">
+          <img src="./svgIcons/mini-dust.svg" class="img-icon" />
+        </div>
+        <div class="card-panel-icon-wrapper icon-yellow" v-if="this.mini_dust >= 36">
           <img src="./svgIcons/mini-dust.svg" class="img-icon" />
         </div>
         <div class="card-panel-text">
@@ -82,6 +91,7 @@ import CountTo from 'vue-count-to'
 import axios from 'axios'
 var curdata = []
 
+
 export default {
   components: {
     CountTo
@@ -97,7 +107,13 @@ export default {
     }
   },
   mounted() {
-    setInterval(this.send, 1000)
+    try{
+        compare_ele(this.dust, this.mini_dusts)
+        }
+        catch (e){
+            console.log(e)
+        };
+    setInterval(this.send, 1000);
   },
   methods: {
     send() {
@@ -118,8 +134,9 @@ export default {
         })
     }
   }
+  }
+  
 
-}
 </script>
 <style>
 .img-icon{
@@ -149,6 +166,14 @@ export default {
 
     .card-panel-icon-wrapper {
       color: #fff;
+    }
+
+    .icon-green {
+      background : green;
+    }
+
+    .icon-yellow {
+      background : yellow;
     }
 
     .icon-temperature {
