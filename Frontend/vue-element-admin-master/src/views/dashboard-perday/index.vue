@@ -37,19 +37,19 @@ import LineChart from './components/LineChart'
 import axios from 'axios'
 
 const lineChartData = {
-  actualData: [120, 82, 91, 154, 162, 140, 250]
+  actualData: [22, 25, 23, 17, 18, 16, 17]
 }
 const lineChartData2 = {
-  actualData: [100, 82, 91, 154, 162, 140, 250]
+  actualData: [52, 45, 39, 42, 45, 46, 44]
 }
 const lineChartData3 = {
-  actualData: [120, 82, 91, 154, 162, 140, 300]
+  actualData: [650, 750, 703, 604, 600, 350, 400]
 }
 const lineChartData4 = {
-  actualData: [1, 82, 91, 154, 162, 140, 250]
+  actualData: [40, 33, 55, 60, 53, 42, 32]
 }
 const lineChartData5 = {
-  actualData: [10, 82, 91, 154, 162, 140, 250]
+  actualData: [30, 32, 37, 35, 34, 20, 25]
 }
 
 export default {
