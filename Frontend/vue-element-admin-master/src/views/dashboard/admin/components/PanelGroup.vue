@@ -1,9 +1,9 @@
 <template>
   <el-row :gutter="40" class="panel-group">
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
-      <div class="card-panel" @click="handleSetLineChartData('newVisitis')">
+      <div class="card-panel">
         <div class="card-panel-icon-wrapper icon-temperature">
-          <svg-icon icon-class="temperature" class-name="card-panel-icon" />
+          <img src="./svgIcons/temperature.svg" class="img-icon"/>
         </div>
         <div class="card-panel-text">
           온도
@@ -17,9 +17,9 @@
     </el-col>
 
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
-      <div class="card-panel" @click="handleSetLineChartData('messages')">
+      <div class="card-panel">
         <div class="card-panel-icon-wrapper icon-message">
-          <svg-icon icon-class="message" class-name="card-panel-icon" />
+          <img src="./svgIcons/humidity.svg" class="img-icon"/>
         </div>
         <div class="card-panel-text">
           습도
@@ -32,9 +32,9 @@
     </el-col>
 
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
-      <div class="card-panel" @click="handleSetLineChartData('purchases')">
+      <div class="card-panel">
         <div class="card-panel-icon-wrapper icon-money">
-          <svg-icon icon-class="money" class-name="card-panel-icon" />
+          <img src="./svgIcons/co2.svg" class="img-icon"/>
         </div>
         <div class="card-panel-text">
           이산화탄소
@@ -47,9 +47,9 @@
     </el-col>
 
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
-      <div class="card-panel" @click="handleSetLineChartData('shoppings')">
+      <div class="card-panel">
         <div class="card-panel-icon-wrapper icon-shopping">
-          <svg-icon icon-class="shopping" class-name="card-panel-icon" />
+          <img src="./svgIcons/dust.svg" class="img-icon"/>
         </div>
         <div class="card-panel-text">
           미세먼지
@@ -64,7 +64,7 @@
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
       <div class="card-panel">
         <div class="card-panel-icon-wrapper icon-shopping">
-          <svg-icon icon-class="shopping" class-name="card-panel-icon" />
+          <img src="./svgIcons/mini-dust.svg" class="img-icon"/>
         </div>
         <div class="card-panel-text">
           초미세먼지
@@ -74,6 +74,9 @@
           <div class="card-panel-unit">㎍/m³</div>
         </div>
       </div>
+    </el-col>
+    <el-col>
+      <img src="./svgIcons/temperature.svg" class-name="card-panel-icon" style="color:black" />
     </el-col>
   </el-row>
 </template>
@@ -126,6 +129,14 @@ export default {
 
 }
 </script>
+<style>
+.img-icon{
+  width:48px;
+  color: rgb(58, 58, 58);
+  fill: aqua;
+}
+
+</style>
 
 <style lang="scss" scoped>
 .panel-group {
@@ -146,33 +157,32 @@ export default {
     box-shadow: 4px 4px 40px rgba(0, 0, 0, .05);
     border-color: rgba(0, 0, 0, .05);
 
-    &:hover {
-      .card-panel-icon-wrapper {
-        color: #fff;
-      }
 
-      .icon-temperature {
-        background: #C74431;
-      }
-
-      .icon-message {
-        background: #C74431;
-      }
-
-      .icon-money {
-        background: #C74431;
-      }
-
-      .icon-shopping {
-        background: #C74431
-      }
-
-      .icon-dust {
-        background: #C74431
-      }
+    .card-panel-icon-wrapper {
+      color: #fff;
     }
 
-    .icon-people {
+    .icon-temperature {
+      background: #C74431;
+    }
+
+    .icon-message {
+      background: #C74431;
+    }
+
+    .icon-money {
+      background: #C74431;
+    }
+
+    .icon-shopping {
+      background: #C74431
+    }
+
+    .icon-dust {
+      background: #C74431
+    }
+
+    .icon-temperature {
       color: #C74431;
     }
 
