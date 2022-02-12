@@ -1,33 +1,138 @@
 <template>
-  <el-row :gutter="20" class="panel-group">
-    <el-col class="card-panel-col">      
-      <div class="card-panel">
+  <el-row :gutter="20" class="panel-group" id="row">
+    <el-col class="card-panel-col" v-if="this.temperature < 18">      
+      <div class="card-panel" ref="tempup">
         <div class="card-panel-icon-wrapper">
           <img src="./svgIcons/tep.png" class="alert-icon"/>
         </div>
         <div id="text" class="card-panel-text tem-text">
-          온도를 높여주세요.
+          온도가 너무 낮습니다. 온도를 높여주세요.
         </div>
         <div class="card-panel-description">
         </div>
       </div>
     </el-col>
 
-    <el-col class="card-panel-col">      
-      <div class="card-panel">
+    <el-col class="card-panel-col" v-if="this.temperature > 20">      
+      <div class="card-panel" id="temp-down">
+        <div class="card-panel-icon-wrapper">
+          <img src="./svgIcons/tep.png" class="alert-icon"/>
+        </div>
+        <div id="text" class="card-panel-text tem-text">
+          온도가 너무 높습니다. 온도를 낮춰주세요.
+        </div>
+        <div class="card-panel-description">
+        </div>
+      </div>
+    </el-col>
+
+    <el-col class="card-panel-col" v-if="this.dust > 75 || this.mini_dust > 35 || CO2 > 1000">      
+      <div class="card-panel" id="wind">
         <div class="card-panel-icon-wrapper">
           <img src="./svgIcons/wind 1.svg" class="alert-icon"/>
         </div>
         <div id="text" class="card-panel-text wind-text">
-          환기가 필요합니다.
+          환기가 필요합니다. 창문을 열어주세요.
         </div>
         <div class="card-panel-description">
         </div>
       </div>
     </el-col>
-</el-row>
+
+    <el-col class="card-panel-col" v-if="this.humidity < 40">      
+      <div class="card-panel" id="no-wind">
+        <div class="card-panel-icon-wrapper">
+          <img src="./svgIcons/clean-water.png" class="alert-icon"/>
+        </div>
+        <div id="text" class="card-panel-text wind-text">
+          너무 건조합니다. 가습기를 틀어주세요.
+        </div>
+        <div class="card-panel-description">
+        </div>
+      </div>
+    </el-col>
+
+    <el-col class="card-panel-col" v-if="this.humidity > 60">      
+      <div class="card-panel" id="enough-water">
+        <div class="card-panel-icon-wrapper">
+          <img src="./svgIcons/no-water.png" class="alert-icon"/>
+        </div>
+        <div id="text" class="card-panel-text wind-text">
+          너무 습합니다. 제습기를 틀어주세요.
+        </div>
+        <div class="card-panel-description">
+            <count-to :start-val="0" :end-val="mini_dust" :duration="1000" class="card-panel-num" />
+            <div class="card-panel-unit">㎍/m³</div>
+        </div>
+      </div>
+    </el-col>
+  </el-row>
 </template>
 
+<script>
+    import CountTo from 'vue-count-to'
+    import axios from 'axios'
+    var curdata = []
+
+    export default {
+    name:'AlertGroup',
+    components: {
+        CountTo,
+    },
+    data() {
+        return {
+        number: '',
+        temperature: '',
+        humidity: '',
+        CO2: '',
+        dust: '',
+        mini_dust: ''
+        }
+    },
+    mounted() {
+        this.tu = console.log(this.$refs.tempup);
+        try{
+        compare_ele(this.temperature, this.humidity, this.CO2, this.dust, this.mini_dusts)
+        }
+        catch (e){
+            console.log(e)
+        };
+        setInterval(this.send, 1000);
+    },
+    methods: {
+        send() {
+        axios({
+            url: 'http://localhost:52273/',
+            method: 'POST',
+            data: {
+            number: ''
+            }
+        }).then(res => {
+            try{
+                curdata = res.data.message.split('\t')
+                this.temperature = parseFloat(curdata[1])
+                this.humidity = curdata[2]
+                this.CO2 = curdata[3]
+                this.dust = curdata[4]
+                this.mini_dust = curdata[5]}
+            catch(e){
+                console.log(e)
+            }
+            })
+        }
+    }
+    }
+
+    function compare_ele(tem, hum, co2, dust, mdust){
+        console.log(this.$refs.tempup)
+        if (tem > 20 || tem < 18){
+            this.$refs.tempup.display = none;
+        }
+        else{
+            this.$refs.tempup.display = block;
+        }
+    }
+</script>
 
 <style>
  .alert-icon{

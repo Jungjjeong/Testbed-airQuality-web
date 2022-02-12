@@ -3,7 +3,7 @@
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">      
       <div class="card-panel">
         <div class="card-panel-icon-wrapper icon-temperature">
-          <img src="./svgIcons/temperature.svg" class="img-icon"/>
+          <img src="./svgIcons/temperature.svg" class="img-icon" />
         </div>
         <div class="card-panel-text">
           온도
@@ -18,7 +18,7 @@
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">      
       <div class="card-panel">
         <div class="card-panel-icon-wrapper icon-message">
-          <img src="./svgIcons/humidity.svg" class="img-icon"/>
+          <img src="./svgIcons/humidity.svg" class="img-icon" />
         </div>
         <div class="card-panel-text">
           습도
@@ -33,7 +33,7 @@
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">      
       <div class="card-panel">
         <div class="card-panel-icon-wrapper icon-money">
-          <img src="./svgIcons/co2.svg" class="img-icon"/>
+          <img src="./svgIcons/co2.svg" class="img-icon" />
         </div>
         <div class="card-panel-text">
           이산화탄소
@@ -48,7 +48,7 @@
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">      
       <div class="card-panel">
         <div class="card-panel-icon-wrapper icon-shopping">
-          <img src="./svgIcons/dust.svg" class="img-icon"/>
+          <img src="./svgIcons/dust.svg" class="img-icon" />
         </div>
         <div class="card-panel-text">
           미세먼지
@@ -63,7 +63,7 @@
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">   
       <div class="card-panel">
         <div class="card-panel-icon-wrapper icon-shopping">
-          <img src="./svgIcons/mini-dust.svg" class="img-icon"/>
+          <img src="./svgIcons/mini-dust.svg" class="img-icon" />
         </div>
         <div class="card-panel-text">
           초미세먼지
@@ -100,9 +100,6 @@ export default {
     setInterval(this.send, 1000)
   },
   methods: {
-    handleSetLineChartData(type) {
-      this.$emit('handleSetLineChartData', type)
-    },
     send() {
       axios({
         url: 'http://localhost:52273/',
@@ -118,7 +115,6 @@ export default {
           this.CO2 = curdata[3]
           this.dust = curdata[4]
           this.mini_dust = curdata[5]
-          console.log(typeof (this.temperature))
         })
     }
   }
@@ -151,7 +147,6 @@ export default {
     box-shadow: 4px 4px 40px rgba(0, 0, 0, .05);
     border-color: rgba(0, 0, 0, .05);
 
-
     .card-panel-icon-wrapper {
       color: #fff;
     }
@@ -174,26 +169,6 @@ export default {
 
     .icon-dust {
       background: #C74431
-    }
-
-    .icon-temperature {
-      color: #C74431;
-    }
-
-    .icon-message {
-      color: #C74431;
-    }
-
-    .icon-money {
-      color: #C74431;
-    }
-
-    .icon-shopping {
-      color: #C74431;
-    }
-
-    .icon-dust {
-      color: black;
     }
 
     .card-panel-icon-wrapper {
