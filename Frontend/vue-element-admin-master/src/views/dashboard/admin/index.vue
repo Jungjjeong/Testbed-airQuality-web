@@ -1,13 +1,13 @@
 <template>
   <div class="dashboard-editor-container">
-
     <panel-group @handleSetLineChartData="handleSetLineChartData" />
-
+    <alert-group/>
   </div>
 </template>
 
 <script>
 import PanelGroup from './components/PanelGroup'
+import AlertGroup from './components/AlertGroup'
 
 
 const lineChartData = {
@@ -33,23 +33,14 @@ export default {
   name: 'DashboardAdmin',
   components: {
     PanelGroup,
-  },
-  data() {
-    return {
-      lineChartData: lineChartData.newVisitis
-    }
-  },
-  methods: {
-    handleSetLineChartData(type) {
-      this.lineChartData = lineChartData[type]
-    }
+    AlertGroup
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .dashboard-editor-container {
-  padding: 32px;
+  padding: 30px;
   background-color: rgb(240, 242, 245);
   position: relative;
 
@@ -57,7 +48,7 @@ export default {
 
 @media (max-width:1024px) {
   .chart-wrapper {
-    padding: 8px;
+    padding: 5px;
   }
 }
 </style>

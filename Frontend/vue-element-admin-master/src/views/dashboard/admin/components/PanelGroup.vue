@@ -1,6 +1,6 @@
 <template>
-  <el-row :gutter="40" class="panel-group">
-    <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
+  <el-row :gutter="20" class="panel-group">
+    <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">      
       <div class="card-panel">
         <div class="card-panel-icon-wrapper icon-temperature">
           <img src="./svgIcons/temperature.svg" class="img-icon"/>
@@ -12,11 +12,10 @@
           <count-to :start-val="0" :end-val="temperature" :duration="1000" class="card-panel-num" />
           <div class="card-panel-unit">°C</div>
         </div>
-
       </div>
     </el-col>
 
-    <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
+    <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">      
       <div class="card-panel">
         <div class="card-panel-icon-wrapper icon-message">
           <img src="./svgIcons/humidity.svg" class="img-icon"/>
@@ -31,7 +30,7 @@
       </div>
     </el-col>
 
-    <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
+    <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">      
       <div class="card-panel">
         <div class="card-panel-icon-wrapper icon-money">
           <img src="./svgIcons/co2.svg" class="img-icon"/>
@@ -46,7 +45,7 @@
       </div>
     </el-col>
 
-    <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
+    <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">      
       <div class="card-panel">
         <div class="card-panel-icon-wrapper icon-shopping">
           <img src="./svgIcons/dust.svg" class="img-icon"/>
@@ -61,7 +60,7 @@
       </div>
     </el-col>
 
-    <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
+    <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">   
       <div class="card-panel">
         <div class="card-panel-icon-wrapper icon-shopping">
           <img src="./svgIcons/mini-dust.svg" class="img-icon"/>
@@ -74,9 +73,6 @@
           <div class="card-panel-unit">㎍/m³</div>
         </div>
       </div>
-    </el-col>
-    <el-col>
-      <img src="./svgIcons/temperature.svg" class-name="card-panel-icon" style="color:black" />
     </el-col>
   </el-row>
 </template>
@@ -131,9 +127,7 @@ export default {
 </script>
 <style>
 .img-icon{
-  width:48px;
-  color: rgb(58, 58, 58);
-  fill: aqua;
+  width:50px;
 }
 
 </style>
@@ -149,7 +143,7 @@ export default {
   .card-panel {
     height: 108px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 11px;
     position: relative;
     overflow: hidden;
     color: #666;
@@ -204,7 +198,7 @@ export default {
 
     .card-panel-icon-wrapper {
       float: left;
-      margin: 14px 0 0 14px;
+      margin: 12px 0 0 12px;
       padding: 16px;
       transition: all 0.38s ease-out;
       border-radius: 6px;
@@ -212,7 +206,7 @@ export default {
 
     .card-panel-icon {
       float: left;
-      font-size: 48px;
+      font-size: 50px;
     }
 
     .card-panel-text {
@@ -222,7 +216,7 @@ export default {
         margin-left: 20px;
         line-height: 18px;
         color: rgba(0, 0, 0, 0.45);
-        font-size: 20px;
+        font-size: 16px;
       }
 
     .card-panel-description {
@@ -254,7 +248,7 @@ export default {
 
     .svg-icon {
       display: block;
-      margin: 14px auto !important;
+      margin: 12px auto !important;
       float: none !important;
     }
   }
