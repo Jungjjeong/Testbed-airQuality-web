@@ -2,10 +2,23 @@
   <el-row :gutter="20" class="panel-group">
     <el-col class="card-panel-col">      
       <div class="card-panel">
-        <div class="card-panel-icon-wrapper icon-temperature">
+        <div class="card-panel-icon-wrapper">
+          <img src="./svgIcons/tep.png" class="alert-icon"/>
+        </div>
+        <div id="text" class="card-panel-text tem-text">
+          온도를 높여주세요.
+        </div>
+        <div class="card-panel-description">
+        </div>
+      </div>
+    </el-col>
+
+    <el-col class="card-panel-col">      
+      <div class="card-panel">
+        <div class="card-panel-icon-wrapper">
           <img src="./svgIcons/wind 1.svg" class="alert-icon"/>
         </div>
-        <div id="text" class="card-panel-text">
+        <div id="text" class="card-panel-text wind-text">
           환기가 필요합니다.
         </div>
         <div class="card-panel-description">
@@ -58,9 +71,15 @@
       float: left;
       font-size: 50px;
     }
+    .tem-text{
+        color: #9E9292
+    }
+
+    .wind-text{
+        color: #69C9D4;
+    }
 
     .card-panel-text {
-        color: #69C9D4;
         float: left;
         font-weight: bold;
         margin-top: 52px;
