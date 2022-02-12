@@ -3,7 +3,29 @@
     <github-corner class="github-corner" />
 
     <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
+      <div class="component-back">
+        <div class="component-title">온도</div>
+      </div>
       <line-chart :chart-data="lineChartData" />
+
+      <div class="component-back">
+        <div class="component-title">습도</div>
+      </div>
+      <line-chart :chart-data="lineChartData" />
+
+      <div class="component-back">
+        <div class="component-title">이산화탄소</div>
+      </div>
+      <line-chart :chart-data="lineChartData" />
+
+      <div class="component-back">
+        <div class="component-title">미세먼지</div>
+      </div>
+      <line-chart :chart-data="lineChartData" />
+
+      <div class="component-back">
+        <div class="component-title">초미세먼지</div>
+      </div>
       <line-chart :chart-data="lineChartData" />
     </el-row>
   </div>
@@ -11,7 +33,6 @@
 
 <script>
 import LineChart from './components/LineChart'
-
 
 const lineChartData = {
   newVisitis: {
@@ -55,6 +76,16 @@ export default {
   padding: 32px;
   background-color: rgb(240, 242, 245);
   position: relative;
+}
+
+.component-back {
+    height: 30px;
+    background: #F9F9F9;
+
+    .component-title {
+      font-size: 20px;
+      font-weight: bold;
+    }
 }
 
 @media (max-width:1024px) {

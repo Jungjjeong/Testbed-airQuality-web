@@ -3,7 +3,29 @@
     <github-corner class="github-corner" />
 
     <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
+      <div class="component-back">
+        <div class="component-title">온도</div>
+      </div>
       <line-chart :chart-data="lineChartData" />
+
+      <div class="component-back">
+        <div class="component-title">습도</div>
+      </div>
+      <line-chart :chart-data="lineChartData" />
+
+      <div class="component-back">
+        <div class="component-title">이산화탄소</div>
+      </div>
+      <line-chart :chart-data="lineChartData" />
+
+      <div class="component-back">
+        <div class="component-title">미세먼지</div>
+      </div>
+      <line-chart :chart-data="lineChartData" />
+
+      <div class="component-back">
+        <div class="component-title">초미세먼지</div>
+      </div>
       <line-chart :chart-data="lineChartData" />
     </el-row>
   </div>
@@ -13,7 +35,6 @@
 import LineChart from './components/LineChart'
 
 import axios from 'axios'
-
 
 const lineChartData = {
   newVisitis: {
@@ -50,16 +71,16 @@ export default {
     }
   },
   methods: {
-    send(){					// 전송 버튼 클릭 시
-        axios({					// axios 통신 시작
-          url: "http://127.0.0.1:52273/",	// back 서버 주소
-          method: "POST",			// 전송방식을 post로 지정
-          data: {				// body라고 생각하면 됨
-            number: this.number,		// key가 number이고 value가 입력받은 숫자(this.number)
-          },
-        }).
-        then(res => {				// back 서버로부터 응답받으면
-            alert(res.data.message);		// back 서버에서 보낸 message 출력
+    send() {					// 전송 버튼 클릭 시
+      axios({					// axios 통신 시작
+        url: 'http://127.0.0.1:52273/',	// back 서버 주소
+        method: 'POST',			// 전송방식을 post로 지정
+        data: {				// body라고 생각하면 됨
+          number: this.number		// key가 number이고 value가 입력받은 숫자(this.number)
+        }
+      })
+        .then(res => {				// back 서버로부터 응답받으면
+          alert(res.data.message)		// back 서버에서 보낸 message 출력
         })
     }
   }
@@ -71,6 +92,16 @@ export default {
   padding: 32px;
   background-color: rgb(240, 242, 245);
   position: relative;
+}
+
+.component-back {
+    height: 30px;
+    background: #F9F9F9;
+
+    .component-title {
+      font-size: 20px;
+      font-weight: bold;
+    }
 }
 
 @media (max-width:1024px) {
