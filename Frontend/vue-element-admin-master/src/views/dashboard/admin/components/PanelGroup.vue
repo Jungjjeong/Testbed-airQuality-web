@@ -35,7 +35,10 @@
         <div class="card-panel-icon-wrapper icon-green" v-if="this.CO2 <= 800">
           <img src="./svgIcons/co2.svg" class="img-icon" />
         </div>
-        <div class="card-panel-icon-wrapper icon-yellow" v-if="this.CO2 > 801">
+        <div class="card-panel-icon-wrapper icon-yellow" v-if="this.CO2 > 800">
+          <img src="./svgIcons/co2.svg" class="img-icon" />
+        </div>
+        <div class="card-panel-icon-wrapper icon-red" v-if="this.CO2 > 1000">
           <img src="./svgIcons/co2.svg" class="img-icon" />
         </div>
         <div class="card-panel-text">
@@ -53,7 +56,10 @@
         <div class="card-panel-icon-wrapper icon-green" v-if="this.dust <= 80">
           <img src="./svgIcons/dust.svg" class="img-icon" />
         </div>
-        <div class="card-panel-icon-wrapper icon-yellow" v-if="this.dust > 81">
+        <div class="card-panel-icon-wrapper icon-yellow" v-if="this.dust > 80">
+          <img src="./svgIcons/dust.svg" class="img-icon" />
+        </div>
+        <div class="card-panel-icon-wrapper icon-red" v-if="this.dust > 150">
           <img src="./svgIcons/dust.svg" class="img-icon" />
         </div>
         <div class="card-panel-text">
@@ -68,10 +74,13 @@
 
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">   
       <div class="card-panel">
-        <div class="card-panel-icon-wrapper icon-green" v-if="this.mini_dust < 36">
+        <div class="card-panel-icon-wrapper icon-green" v-if="this.mini_dust <= 35">
           <img src="./svgIcons/mini-dust.svg" class="img-icon" />
         </div>
-        <div class="card-panel-icon-wrapper icon-yellow" v-if="this.mini_dust >= 36">
+        <div class="card-panel-icon-wrapper icon-yellow" v-if="this.mini_dust > 35">
+          <img src="./svgIcons/mini-dust.svg" class="img-icon" />
+        </div>
+        <div class="card-panel-icon-wrapper icon-red" v-if="this.mini_dust > 75">
           <img src="./svgIcons/mini-dust.svg" class="img-icon" />
         </div>
         <div class="card-panel-text">
@@ -173,27 +182,31 @@ export default {
     }
 
     .icon-yellow {
-      background : yellow;
+      background : rgb(255, 217, 0);
+    }
+
+    .icon-red {
+      background : #C74431;
     }
 
     .icon-temperature {
-      background: #C74431;
+      background: #69C9D4;
     }
 
     .icon-message {
-      background: #C74431;
+      background: #69C9D4;
     }
 
     .icon-money {
-      background: #C74431;
+      background: #69C9D4;
     }
 
     .icon-shopping {
-      background: #C74431
+      background: #69C9D4
     }
 
     .icon-dust {
-      background: #C74431
+      background: #69C9D4
     }
 
     .card-panel-icon-wrapper {

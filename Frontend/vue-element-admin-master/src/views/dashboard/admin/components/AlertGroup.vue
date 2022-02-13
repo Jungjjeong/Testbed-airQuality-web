@@ -26,7 +26,7 @@
       </div>
     </el-col>
 
-    <el-col class="card-panel-col" v-if="this.dust > 75 || this.mini_dust > 35 || CO2 > 1000">      
+    <el-col class="card-panel-col" v-if="this.dust > 80 || this.mini_dust > 35 || CO2 > 800">      
       <div class="card-panel" id="wind">
         <div class="card-panel-icon-wrapper">
           <img src="./svgIcons/wind 1.svg" class="alert-icon"/>
