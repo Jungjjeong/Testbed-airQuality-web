@@ -37,23 +37,23 @@ import LineChart from './components/LineChart'
 import axios from 'axios'
 
 const lineChartData = {
-  actualData: [22, 25, 23, 17, 18, 16, 17]
+  actualData: [12.2, 11.6, 11.2, 10.2, 9.8, 9.5, 8.9, 8.7, 15.2, 18.3, 20.2, 20.7, 20.5, 18.1, 20.7, 19.9, 18.4, 19.5, 20.1, 20.3, 19.2, 18.8, 15.7, 13.5]
 }
 const lineChartData2 = {
-  actualData: [52, 45, 39, 42, 45, 46, 44]
+  actualData: [22, 21, 22, 22, 22, 23, 23, 22.5, 23, 26, 31.1, 32.5, 44.5, 44.7, 47.8, 46.9, 43.2, 48.5, 53, 51, 48, 47.2, 46.1, 42]
 }
 const lineChartData3 = {
-  actualData: [650, 750, 703, 604, 600, 350, 400]
+  actualData: [352, 355, 351, 352, 354, 351, 352, 355, 352, 451, 550, 556, 578, 642, 644, 609, 512, 710, 800, 762, 700, 582, 479, 471]
 }
 const lineChartData4 = {
-  actualData: [40, 33, 55, 60, 53, 42, 32]
+  actualData: [7.8, 8, 7.9, 8, 7.9, 7.9, 8, 7.5, 7.4, 8, 7.6, 7.6, 7.4, 7.5, 7.6, 7.6, 7.7, 7.5, 7.6, 7.5, 7.5, 7.7, 7.6, 7.5, 7.6, 7.5, 7.4, 7.5]
 }
 const lineChartData5 = {
-  actualData: [30, 32, 37, 35, 34, 20, 25]
+  actualData: [7.7, 7.9, 7.8, 8, 7.9, 7.7, 7.8, 7.5, 7.4, 7.6, 7.6, 7.5, 7.4, 7.4, 7.5, 7.5, 7.7, 7.6, 7.6, 7.5, 7.5, 7.6, 7.6, 7.5, 7.5, 7.5, 7.5, 7.5]
 }
 
 export default {
-  name: 'DashboardAdmin',
+  name: 'DashboardAdmin', 
   components: {
     LineChart
   },
