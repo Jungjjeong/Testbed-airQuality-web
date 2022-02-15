@@ -11,11 +11,19 @@ var dateString = year + "-" + month + "-" + day;
 var rs = require("fs");
 var array;
 var memofile = "";
+var i = 0;
 
 function readdata() {
-  var temperature = String(Math.floor(Math.random() * (23 - 18 + 1)) + 18);
-  var humidity = String(Math.floor(Math.random() * (35 - 28 + 1)) + 28);
-  var CO2 = String(Math.floor(Math.random() * (900 - 650 + 1)) + 650);
+  var co_list = [
+    727, 726, 735, 750, 778, 797, 830, 888, 972, 1003, 1015, 1013, 976, 920,
+    897, 850, 823, 799, 789, 792, 778, 738, 735, 735, 726, 723,
+  ];
+
+  var temperature = String(Math.floor(Math.random() * (20 - 18 + 1)) + 18);
+  var humidity = String(Math.floor(Math.random() * (55 - 42 + 1)) + 42);
+  var CO2 = co_list[i];
+  i += 1;
+  // var CO2 = String(Math.floor(Math.random() * (900 - 650 + 1)) + 650);
   var dust = String(Math.floor(Math.random() * (14 - 11 + 1) + 11));
   var minidust = String(Math.floor(Math.random() * (10 - 9 + 1) + 9));
   var filedata =

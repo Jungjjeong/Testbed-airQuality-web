@@ -36,14 +36,14 @@
         <div class="card-panel-icon-wrapper icon-green" v-if="this.CO2 <= 800">
           <img src="./svgIcons/co2.svg" class="img-icon" />
         </div>
-        <div class="card-panel-icon-wrapper icon-yellow" v-if="this.CO2 > 800">
+        <div class="card-panel-icon-wrapper icon-yellow" v-if="800 < this.CO2 && this.CO2 <= 1000">
           <img src="./svgIcons/co2.svg" class="img-icon" />
         </div>
         <div class="card-panel-icon-wrapper icon-red" v-if="this.CO2 > 1000">
           <img src="./svgIcons/co2.svg" class="img-icon" />
         </div>
         <div class="card-panel-text">
-          이산화탄소
+          CO2
         </div>
         <div class="card-panel-description">
           <count-to :start-val="before_CO2[0]" :end-val="CO2" :duration="1000" class="card-panel-num" />
@@ -57,7 +57,7 @@
         <div class="card-panel-icon-wrapper icon-green" v-if="this.dust <= 80">
           <img src="./svgIcons/dust.svg" class="img-icon" />
         </div>
-        <div class="card-panel-icon-wrapper icon-yellow" v-if="this.dust > 80">
+        <div class="card-panel-icon-wrapper icon-yellow" v-if="80 < this.dust && this.dust <= 150">
           <img src="./svgIcons/dust.svg" class="img-icon" />
         </div>
         <div class="card-panel-icon-wrapper icon-red" v-if="this.dust > 150">
@@ -78,7 +78,7 @@
         <div class="card-panel-icon-wrapper icon-green" v-if="this.mini_dust <= 35">
           <img src="./svgIcons/mini-dust.svg" class="img-icon" />
         </div>
-        <div class="card-panel-icon-wrapper icon-yellow" v-if="this.mini_dust > 35">
+        <div class="card-panel-icon-wrapper icon-yellow" v-if="35 < this.mini_dust && this.mini_dust <= 75">
           <img src="./svgIcons/mini-dust.svg" class="img-icon" />
         </div>
         <div class="card-panel-icon-wrapper icon-red" v-if="this.mini_dust > 75">
@@ -118,16 +118,10 @@ export default {
       before_dust:[0,0],
       dust: '',
       before_mdust:[0,0],
-      mini_dust: ''
+      mini_dust: '',
     }
   },
   mounted() {
-    // try{
-    //     compare_ele(this.dust, this.mini_dusts)
-    //     }
-    //     catch (e){
-    //         console.log(e)
-    //     }
     setInterval(this.send, 1000);
   },
   methods: {

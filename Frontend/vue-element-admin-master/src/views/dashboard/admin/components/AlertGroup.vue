@@ -32,7 +32,7 @@
           <img src="./svgIcons/wind 1.svg" class="alert-icon"/>
         </div>
         <div id="text" class="card-panel-text wind-text">
-          환기가 필요합니다. 창문을 열어주세요.
+          환기가 필요합니다.
         </div>
         <div class="card-panel-description">
         </div>
