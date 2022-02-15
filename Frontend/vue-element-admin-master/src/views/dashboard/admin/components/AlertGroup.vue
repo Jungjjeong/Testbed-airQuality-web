@@ -90,7 +90,6 @@
         }
     },
     mounted() {
-        this.tu = console.log(this.$refs.tempup);
         try{
         compare_ele(this.temperature, this.humidity, this.CO2, this.dust, this.mini_dusts)
         }

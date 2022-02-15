@@ -16,8 +16,8 @@ function readdata() {
   var temperature = String(Math.floor(Math.random() * (23 - 18 + 1)) + 18);
   var humidity = String(Math.floor(Math.random() * (35 - 28 + 1)) + 28);
   var CO2 = String(Math.floor(Math.random() * (900 - 650 + 1)) + 650);
-  var dust = String(Math.floor(Math.random() * (100 - 50 + 1) + 50));
-  var minidust = String(Math.floor(Math.random() * (50 - 24 + 1) + 24));
+  var dust = String(Math.floor(Math.random() * (14 - 11 + 1) + 11));
+  var minidust = String(Math.floor(Math.random() * (10 - 9 + 1) + 9));
   var filedata =
     dateString +
     "\t" +
