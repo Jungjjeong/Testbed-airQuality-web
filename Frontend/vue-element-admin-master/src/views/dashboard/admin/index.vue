@@ -2,13 +2,14 @@
   <div class="dashboard-editor-container">
     <panel-group @handleSetLineChartData="handleSetLineChartData" />
     <alert-group/>
+    <control-group/>
   </div>
 </template>
 
 <script>
 import PanelGroup from './components/PanelGroup'
 import AlertGroup from './components/AlertGroup'
-
+import ControlGroup from './components/ControlGroup'
 
 const lineChartData = {
   newVisitis: {
@@ -33,7 +34,8 @@ export default {
   name: 'DashboardAdmin',
   components: {
     PanelGroup,
-    AlertGroup
+    AlertGroup,
+    ControlGroup
   }
 }
 </script>
