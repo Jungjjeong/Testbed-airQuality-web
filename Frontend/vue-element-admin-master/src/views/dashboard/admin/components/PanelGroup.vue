@@ -1,6 +1,7 @@
 <template>
   <el-row :gutter="20" class="panel-group">
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">      
+      {{changeValue}}
       <div class="card-panel">
         <div class="card-panel-icon-wrapper icon-temperature">
           <img src="./svgIcons/temperature.svg" class="img-icon" />
@@ -9,7 +10,7 @@
           온도
         </div>
         <div class="card-panel-description">
-          <count-to :start-val="0" :end-val="temperature" :duration="1000" class="card-panel-num" />
+          <count-to :start-val='before_tem[0]' :end-val="temperature" :duration="1000" class="card-panel-num" />
           <div class="card-panel-unit">°C</div>
         </div>
       </div>
@@ -24,7 +25,7 @@
           습도
         </div>
         <div class="card-panel-description">
-          <count-to :start-val="0" :end-val="humidity" :duration="1000" class="card-panel-num" />
+          <count-to :start-val="before_hum[0]" :end-val="humidity" :duration="1000" class="card-panel-num" />
           <div class="card-panel-unit">%</div>
         </div>
       </div>
@@ -45,7 +46,7 @@
           이산화탄소
         </div>
         <div class="card-panel-description">
-          <count-to :start-val="0" :end-val="CO2" :duration="1000" class="card-panel-num" />
+          <count-to :start-val="before_CO2[0]" :end-val="CO2" :duration="1000" class="card-panel-num" />
           <div class="card-panel-unit">ppm</div>
         </div>
       </div>
@@ -66,7 +67,7 @@
           미세먼지
         </div>
         <div class="card-panel-description">
-          <count-to :start-val="0" :end-val="dust" :duration="1000" class="card-panel-num" />
+          <count-to :start-val="before_dust[0]" :end-val="dust" :duration="1000" class="card-panel-num" />
           <div class="card-panel-unit">㎍/m³</div>
         </div>
       </div>
@@ -87,7 +88,7 @@
           초미세먼지
         </div>
         <div class="card-panel-description">
-          <count-to :start-val="0" :end-val="mini_dust" :duration="1000" class="card-panel-num" />
+          <count-to :start-val="before_mdust[0]" :end-val="mini_dust" :duration="1000" class="card-panel-num" />
           <div class="card-panel-unit">㎍/m³</div>
         </div>
       </div>
@@ -108,20 +109,25 @@ export default {
   data() {
     return {
       number: '',
+      before_tem:[0,0],
       temperature: '',
+      before_hum : [0,0],
       humidity: '',
+      before_CO2: [0,0],
       CO2: '',
+      before_dust:[0,0],
       dust: '',
+      before_mdust:[0,0],
       mini_dust: ''
     }
   },
   mounted() {
-    try{
-        compare_ele(this.dust, this.mini_dusts)
-        }
-        catch (e){
-            console.log(e)
-        };
+    // try{
+    //     compare_ele(this.dust, this.mini_dusts)
+    //     }
+    //     catch (e){
+    //         console.log(e)
+    //     }
     setInterval(this.send, 1000);
   },
   methods: {
@@ -136,14 +142,29 @@ export default {
         .then(res => {
           curdata = res.data.message.split('\t')
           this.temperature = parseFloat(curdata[1])
-          this.humidity = curdata[2]
-          this.CO2 = curdata[3]
-          this.dust = curdata[4]
-          this.mini_dust = curdata[5]
+          this.humidity = parseFloat(curdata[2])
+          this.CO2 = parseFloat(curdata[3])
+          this.dust = parseFloat(curdata[4])
+          this.mini_dust = parseFloat(curdata[5])
+          this.before_tem[0] = this.before_tem[1]
+          this.before_hum[0] = this.before_hum[1]
+          this.before_CO2[0] = this.before_CO2[1]
+          this.before_dust[0] = this.before_dust[1]
+          this.before_mdust[0] = this.before_mdust[1]
         })
     }
+  },
+  computed: {
+    changeValue : function() {
+      console.log('데이터 갱신')
+      this.before_tem[1] = this.temperature
+      this.before_hum[1] = this.humidity
+      this.before_CO2[1] = this.CO2
+      this.before_dust[1] = this.dust
+      this.before_mdust[1] = this.mini_dust
+    }
   }
-  }
+}
   
 
 </script>
@@ -229,7 +250,7 @@ export default {
         margin-left: 20px;
         line-height: 18px;
         color: rgba(0, 0, 0, 0.45);
-        font-size: 16px;
+        font-size: 25px;
       }
 
     .card-panel-description {
@@ -242,7 +263,7 @@ export default {
       .card-panel-unit {
         float: right;
         margin: 10px;
-        font-size: 15px;
+        font-size: 25px;
       }
     }
   }

@@ -43,7 +43,6 @@ export default {
                 this.up_activeColor = '#9E9292';
             }else{
                 this.up_onoff = 'on';
-                this.up = 'blue';
                 this.up_activeColor = '#84d7e0';
             }
         },
@@ -72,14 +71,14 @@ export default {
 
 <style>
     .control-icon {
-        width: 200px;
+        width: 60%;
         margin-top: 50px;
         position: relative;
-        left: 10%;
+        left: 25%;
     }
 
     .control-button {
-        width:200px;
+        width:60%;
         height:50px;
         font-size:25px;
         font-weight: bolder;
@@ -87,7 +86,7 @@ export default {
         border:0;
         box-shadow: 1px 2px 15px rgba(0,0,0,0.1);
         position: relative;
-        left: 10%;
+        left: 25%;
     }
     .red .control-button{
         background: #9E9292;
