@@ -31,16 +31,16 @@ export default {
             up_onoff: "off",
             down_onoff: "off",
             op_onoff: "off",
-            up_activeColor : '#d37b6d',
-            down_activeColor : '#d37b6d',
-            op_activeColor : '#d37b6d'
+            up_activeColor : '#9E9292',
+            down_activeColor : '#9E9292',
+            op_activeColor : '#9E9292'
         }
     },
     methods: {
         up_turnOn() {
             if(this.up_onoff === 'on'){
                 this.up_onoff = 'off';
-                this.up_activeColor = '#d37b6d';
+                this.up_activeColor = '#9E9292';
             }else{
                 this.up_onoff = 'on';
                 this.up = 'blue';
@@ -50,7 +50,7 @@ export default {
         down_turnOn() {
             if(this.down_onoff === 'on'){
                 this.down_onoff = 'off';
-                this.down_activeColor = '#d37b6d';
+                this.down_activeColor = '#9E9292';
             }else{
                 this.down_onoff = 'on';
                 this.down_activeColor = '#84d7e0';
@@ -59,7 +59,7 @@ export default {
         operate_vent() {
             if(this.op_onoff === 'on'){
                 this.op_onoff = 'off';
-                this.op_activeColor = '#d37b6d';
+                this.op_activeColor = '#9E9292';
             }else{
                 this.op_onoff = 'on';
                 this.op_activeColor = '#84d7e0';
@@ -90,7 +90,7 @@ export default {
         left: 10%;
     }
     .red .control-button{
-        background: #d37b6d;
+        background: #9E9292;
     }
     .blue .control-button{
         background: #84d7e0;
