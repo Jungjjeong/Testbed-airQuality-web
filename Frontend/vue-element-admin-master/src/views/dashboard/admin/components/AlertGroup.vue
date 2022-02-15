@@ -90,12 +90,6 @@
         }
     },
     mounted() {
-        try{
-        compare_ele(this.temperature, this.humidity, this.CO2, this.dust, this.mini_dusts)
-        }
-        catch (e){
-            console.log(e)
-        };
         setInterval(this.send, 1000);
     },
     methods: {
@@ -122,15 +116,6 @@
     }
     }
 
-    function compare_ele(tem, hum, co2, dust, mdust){
-        console.log(this.$refs.tempup)
-        if (tem > 20 || tem < 18){
-            this.$refs.tempup.display = none;
-        }
-        else{
-            this.$refs.tempup.display = block;
-        }
-    }
 </script>
 
 <style>
