@@ -8,6 +8,12 @@
 - 프로젝트 기간 : 2022.01.24 ~ 2022.02.16
 <br>
 
+## 🏆 Award
+
+### ✨ 동국대학교 융합교육원 원장상 서비스 구현분야 우수상
+
+<br>
+
 # ✏ 개발 환경
 
 ![https://img.shields.io/badge/npm-7.5.3-brightgreen](https://img.shields.io/badge/npm-7.5.3-brightgreen)
